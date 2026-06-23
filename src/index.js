@@ -84,3 +84,5 @@ for (let timer = 10 ; timer >= 0 ; timer --) {
         console.log("BOOOOOOOM!!!")
     }
 }
+//exibição de acordo com o requisito
+console.log("O Herói de nome: " + name + ". está no nivel de: " + rank)
