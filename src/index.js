@@ -1,88 +1,97 @@
-//nome e nível do personagem
-const name = "Cloud Striffe"
-let xphave = 6980
-let xpneednext = 0
+// nome e nível do personagem
+const name = "Cloud Strife"
+let xpHave = 6980
+let xpNeedNext = 0
 let rank = ""
-//sistema de rank e indicador de quanto xp falta para o próximo rank
-function updaterank() {
-    if (xphave < 1000) {
-    rank = "BRONZE"
-    xpneednext = 1000
-} else if (xphave < 2000) {
-    rank = "IRON"
-    xpneednext = 2000
-} else if (xphave < 5000) {
-    rank = "SILVER"
-    xpneednext = 5000
-} else if (xphave < 7000) {
-    rank = "GOLD"
-    xpneednext = 7000
-} else if (xphave < 8000) {
-    rank = "PLATINUM"
-    xpneednext = 8000
-} else if (xphave < 9000) {
-    rank = "ASCENDANT"
-    xpneednext = 9000
-} else if (xphave < 10000) {
-    rank = "IMORTAL"
-    xpneednext = 10000
-} else if (xphave >= 10000) { 
-    rank = "GOD"
-    xpneednext = "MAX"
+
+// sistema de rank e indicador de quanto xp falta para o próximo rank
+function updateRank() {
+    if (xpHave < 1000) {
+        rank = "BRONZE"
+        xpNeedNext = 1000
+    } else if (xpHave < 2000) {
+        rank = "IRON"
+        xpNeedNext = 2000
+    } else if (xpHave < 5000) {
+        rank = "SILVER"
+        xpNeedNext = 5000
+    } else if (xpHave < 7000) {
+        rank = "GOLD"
+        xpNeedNext = 7000
+    } else if (xpHave < 8000) {
+        rank = "PLATINUM"
+        xpNeedNext = 8000
+    } else if (xpHave < 9000) {
+        rank = "ASCENDANT"
+        xpNeedNext = 9000
+    } else if (xpHave < 10000) {
+        rank = "IMMORTAL"
+        xpNeedNext = 10000
+    } else {
+        rank = "GOD"
+        xpNeedNext = "MAX"
+    }
 }
-}
-//equipamento para mostrar no inventario
+
+// equipamento para mostrar no inventário
 let armor = "Soldier Outfit"
 let weapon = "Buster Sword"
+
 let equipment = [
-    [armor , "Rank: " + 1 , "Defense: " + 18 , "Effects: You give 5% more damage if you have only 25% of your health"],
-    ["Weapon: " + weapon , "Rank: " + 1 , "Physical Damage: " + 35 , "Magical Damage: " + 35 , "Special Ability: Focus Strike"]
+    [armor, "Rank: " + 1, "Defense: " + 18, "Effects: You give 5% more damage if you have only 25% of your health"],
+    ["Weapon: " + weapon, "Rank: " + 1, "Physical Damage: " + 35, "Magical Damage: " + 35, "Special Ability: Focus Strike"]
 ]
-//função para exibição
-function inventory () {
+
+// função para exibição
+function inventory() {
     console.log("|||||||||||||||||||||||||")
-    console.log("||||||" + name + "||||||")
+    console.log("||||||" + name + "|||||||")
     console.log("|||||||||||||||||||||||||")
     console.log("=======RANK=======")
     console.log(rank)
-    console.log("XP: " + xphave + "/" + xpneednext)
+    console.log("XP: " + xpHave + "/" + xpNeedNext)
     console.log("=======ARMOR======")
     console.log(equipment[0].join("\n"))
     console.log("======WEAPON======")
     console.log(equipment[1].join("\n"))
     console.log("|||||||||||||||||||||||||")
 }
-//função de derrotar inimigo
-function defeatenemy (enemy , xpreward) {
+
+// função de derrotar inimigo
+function defeatEnemy(enemy, xpReward) {
     console.log("Você derrotou " + enemy)
-    console.log("+" + xpreward + " XP")
-    xphave += xpreward
+    console.log("+" + xpReward + " XP")
+    xpHave += xpReward
 }
-//função para rodar o update + inventario
-function openinventory() {
-    updaterank()
+
+// função para rodar o update + inventário
+function openInventory() {
+    updateRank()
     inventory()
 }
-//operação
-openinventory()
 
-defeatenemy("Bandido" , 20)
+// operação
+openInventory()
 
-openinventory()
+defeatEnemy("Bandido", 20)
 
-defeatenemy("Leviathan" ,  1200)
+openInventory()
 
-openinventory()
+defeatEnemy("Leviathan", 1200)
 
-defeatenemy("Bahamuth" ,  5000)
+openInventory()
 
-openinventory()
-//uso de laço de repetição n vi nenhum uso interessante ou prático no resto do código então fiz esse só pra cumprir o requisito do desafio.
-for (let timer = 10 ; timer >= 0 ; timer --) {
+defeatEnemy("Bahamut", 5000)
+
+openInventory()
+
+// uso de laço de repetição
+for (let timer = 10; timer >= 0; timer--) {
     console.log("Fuja! o reator vai explodir em " + timer)
     if (timer === 0) {
         console.log("BOOOOOOOM!!!")
     }
 }
-//exibição de acordo com o requisito
+
+// exibição de acordo com o requisito
 console.log("O Herói de nome: " + name + ". está no nivel de: " + rank)
