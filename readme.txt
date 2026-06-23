@@ -12,7 +12,7 @@ Se XP for maior ou igual a 10.001 = Radiante
 ##OBS:
 No meu código eu fiz ferro ser maior que bronze e mudei o nome de radiante para deus, no caso do meu código está god pois fiz tudo em inglês. fiz essas alterações só 
 por ter achado mais legal assim hahaha, n tem nenhuma razão pra isso.
-##Deve-se usar:##
+##Deve-se usar:
 - Variáveis
 - Operadores
 - Laços de repetição
